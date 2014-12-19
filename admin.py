@@ -1,4 +1,4 @@
-from djangoAB.models import Test, Experiment
+from RobertsAB.models import Test, Experiment
 from django.contrib import admin
 
 class TestInline(admin.StackedInline):
