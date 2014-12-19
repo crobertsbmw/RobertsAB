@@ -13,13 +13,15 @@ Include RobertsAB inside your installed apps:
         ...
     )
 
-Then call ./manage.py syncdb or migrate or whatever they want us to do now.
+Then call `./manage.py syncdb` or `migrate` or whatever they want us to do now.
 
 
-Go into the admin and create your first Expiriment. An Experiment is basically just a group of Tests with a name. For example maybe you want to test 3 landing pages with different color backgrounds. You might create an Experiment called 'landingColor'. And give it three tests with different template names. ie landingPageGreen.html landingPageRed.html and landingPageBlack.html. Make sure your regular TEMPLATE_LOADER can find these templates.
+Go into the admin and create your first Expiriment. 
+
+An Experiment is basically just a group of Tests with a name. For example maybe you want to test 3 landing pages with different color backgrounds. You might create an Experiment called `landingColor`. And give it three tests with different template names. `landingPageGreen.html` `landingPageRed.html` and `landingPageBlack.html`. Make sure your regular `TEMPLATE_LOADER` can find these templates.
 
 
-instead of rendering your template with render or render_to_response use the render method on the Experiment object
+instead of rendering your template with `render` or `render_to_response` use the render method on the Experiment object
 
     def landingPage(request, error_msg=''):
         exp = Experiment.objects.get(name='landingColor')
@@ -37,7 +39,7 @@ or
 
 Rendering your template with the experiments render method will assign the user a Test and set some cookies to keep track of which Test they have been assigned, and consequently, which template will be rendered (until the user deletes their cookies and gets a new Test issued).
 
-AB tests need to have a Goal. We are testing to see which template accomplishes our goal. Somewhere in your code you should call the achieveGoal(request, response) method on the experiment object.
+AB tests need to have a Goal. We are testing to see which template accomplishes our goal. Somewhere in your code you should call the `achieveGoal(request, response)` method on the experiment object.
 
 for example in your userDidSignUp view:
 
