@@ -8,10 +8,10 @@ Usage
 
 Include RobertsAB inside your installed apps:
 
-        INSTALLED_APPS = (
-            'RobertsAB',
-            ...
-        )
+    INSTALLED_APPS = (
+        'RobertsAB',
+        ...
+    )
 
 Then call ./manage.py syncdb or migrate or whatever they want us to do now.
 
@@ -21,31 +21,31 @@ Go into the admin and create your first Expiriment. An Experiment is basically j
 
 instead of rendering your template with render or render_to_response use the render method on the Experiment object
 
-
-        def landingPage(request, error_msg=''):
-            exp = Experiment.objects.get(name='landingColor')
-            return exp.render(request, {})
+    def landingPage(request, error_msg=''):
+        exp = Experiment.objects.get(name='landingColor')
+        return exp.render(request, {})
 
 or
 
-        def landingPage(request, error_msg=''):
-            exp = Experiment.objects.get(name='landingColor')
-            random = ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(16))
-            return exp.render(request, {
-                'error_msg': error_msg,
-                'random': random,
-            })
+    def landingPage(request, error_msg=''):
+        exp = Experiment.objects.get(name='landingColor')
+        random = ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(16))
+        return exp.render(request, {
+            'error_msg': error_msg,
+            'random': random,
+        })
 
 Rendering your template with the experiments render method will assign the user a Test and set some cookies to keep track of which Test they have been assigned, and consequently, which template will be rendered (until the user deletes their cookies and gets a new Test issued).
 
 AB tests need to have a Goal. We are testing to see which template accomplishes our goal. Somewhere in your code you should call the achieveGoal(request, response) method on the experiment object.
 
 for example in your userDidSignUp view:
-        def userDidSignUp(request):
-            ...
-            exp = Experiment.objects.get(name='landingColor')
-            exp.achieveGoal(request, response)
-            return HttpResponse('Congratulations, you are signed up for lolcat!')
+
+    def userDidSignUp(request):
+        ...
+        exp = Experiment.objects.get(name='landingColor')
+        exp.achieveGoal(request, response)
+        return HttpResponse('Congratulations, you are signed up for lolcat!')
 
 Calling this method will check to make sure our user hasn't already achieved this goal, and then increment our conversions count. 
 
