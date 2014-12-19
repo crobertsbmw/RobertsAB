@@ -21,7 +21,7 @@ Go into the admin and create your first Expiriment.
 An Experiment is basically just a group of Tests with a name. For example maybe you want to test 3 landing pages with different color backgrounds. You might create an Experiment called `landingColor`. And give it three tests with different template names. `landingPageGreen.html` `landingPageRed.html` and `landingPageBlack.html`. Make sure your regular `TEMPLATE_LOADER` can find these templates.
 
 
-instead of rendering your template with `render` or `render_to_response` use the render method on the Experiment object
+Instead of rendering your template with `render` or `render_to_response` use the `render` method on the `Experiment` object
 
     def landingPage(request, error_msg=''):
         exp = Experiment.objects.get(name='landingColor')
@@ -41,9 +41,9 @@ Rendering your template with the experiments render method will assign the user 
 
 AB tests need to have a Goal. We are testing to see which template accomplishes our goal. Somewhere in your code you should call the `achieveGoal(request, response)` method on the experiment object.
 
-for example in your userDidSignUp view:
+for example in your userDidSignUpAndPayUsATonOfMoney view:
 
-    def userDidSignUp(request):
+    def userDidSignUpAndPayUsATonOfMoney(request):
         ...
         exp = Experiment.objects.get(name='landingColor')
         exp.achieveGoal(request, response)
