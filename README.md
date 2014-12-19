@@ -4,7 +4,7 @@ RobertsAB
 A super small and simple django app for AB testing various templates.
 
 Usage
-=====
+------
 
 Include RobertsAB inside your installed apps:
 
