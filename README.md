@@ -41,7 +41,7 @@ Rendering your template with the experiments render method will assign the user 
 
 AB tests need to have a Goal. We are testing to see which template accomplishes our goal. Somewhere in your code you should call the `achieveGoal(request, response)` method on the experiment object.
 
-for example in your userDidSignUpAndPayUsATonOfMoney view:
+for example in your `userDidSignUpAndPayUsATonOfMoney` view:
 
     def userDidSignUpAndPayUsATonOfMoney(request):
         ...
