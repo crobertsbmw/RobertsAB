@@ -53,5 +53,4 @@ Calling this method will check to make sure our user hasn't already achieved thi
 
 When you are done. Open up your landingPage then clear the cookies and do it again, then do it a third time. You should see your different templates being loaded and see Test.hits being incremented in the admin.
 
-Currently. This only works to AB test your system. You will have to manually go in and examine the results and make the change that best suits you. However, implementing [this](http://stevehanov.ca/blog/index.php?id=132) is next on the todo list.
-If you have any questions you can open an issue or email me directly at crobertsbmw (gmail).
+This works to AB test your system. You will have to open up your admin panel to see the results of the test and draw your own conclusions.
