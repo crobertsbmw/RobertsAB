@@ -37,8 +37,9 @@ for example in your `userDidSignUpAndPayUsATonOfMoney` view:
     def userDidSignUpAndPayUsATonOfMoney(request):
         ...
         exp = Experiment.objects.get(name='landingColor')
+        response = HttpResponse('Congratulations, you are signed up for hourly spam in your inbox!')
         exp.achieveGoal(request, response)
-        return HttpResponse('Congratulations, you are signed up for hourly spam in your inbox!')
+        return response
 
 Calling this method will check to make sure our user hasn't already achieved this goal, and then increment our conversions count. 
 
