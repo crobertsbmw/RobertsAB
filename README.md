@@ -13,10 +13,10 @@ Include RobertsAB inside your installed apps:
         ...
     )
 
-Then call `./manage.py syncdb` or `migrate` or whatever they want us to do now.
+Then call `./manage.py migrate`.
 
 
-Go into the admin and create your first Expiriment. 
+I know this is a little weird, but now go into the admin panel to create your first `Experiment`.
 
 An Experiment is basically just a group of Tests with a name. For example maybe you want to test 3 landing pages with different color backgrounds. You might create an Experiment called `landingColor`. And give it three tests with different template names. `landingPageGreen.html` `landingPageRed.html` and `landingPageBlack.html`. Make sure your regular `TEMPLATE_LOADER` can find these templates.
 
