@@ -1,6 +1,7 @@
 from django.db import models
 from django.shortcuts import HttpResponse, render
 
+
 class Experiment(models.Model):
     def __str__(self):
         try:
@@ -8,7 +9,6 @@ class Experiment(models.Model):
         except:
             return 'experiment'
     """
-    
     """
     name = models.CharField(max_length=255, null=True, blank=True)
 
@@ -33,9 +33,9 @@ class Experiment(models.Model):
         return response
 
     def getTemplateName(self, request, response):
-        '''This basically assigns everyone to a test for every expirement. Tests are assigned into cookies.
-            The cookie will have the name of e_13 meaning the expiriment's pk is 13 and the value of that cookie
-            will be the pk of the test. If the user doesn't have a cookie for an expiriment then we assign them one
+        '''This basically assigns everyone to a test for every experiment. Tests are assigned into cookies.
+            The cookie will have the name of e_13 meaning the experiment's pk is 13 and the value of that cookie
+            will be the pk of the test. If the user doesn't have a cookie for an experiment then we assign them one
             based on whichever test in that experiment has the least number of hits.
         '''
         ex = self
